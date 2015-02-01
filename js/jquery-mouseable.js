@@ -1,8 +1,8 @@
 /**
- * jQuery mouseable plugin
+ * jQuery mouseable() plugin
  * 
- * Custom jQuery method that adds hover and active classes to elements
- * JavaScript replacement for CSS :hover and :active pseudo classes and is !DOCTYPE-agnostic
+ * Custom jQuery method that adds hover and active classes to DOM elements...
+ * A !DOCTYPE-agnostic replacement for CSS :hover and :active pseudo classes
  * 
  * Copyright (c) 2015 Dan Zervoudakes
  * Released under the MIT license
