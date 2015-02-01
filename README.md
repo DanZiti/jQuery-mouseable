@@ -21,4 +21,4 @@ $("#mouseable-test").mouseable({
 
 In the example above, the hover class is user-defined as "foo" and the active class is user-defined as "bar".
 
-*This plugin is optimized for both normal mouse events and touch gestures.*
+*This plugin is optimized for both mouse events and touch events.*
