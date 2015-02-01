@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>jQuery doubleTap plugin</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery-mouseable.js"></script>
+		<style type="text/css">
+			#mouseable-test {
+				width: 60px;
+				height: 60px;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+				cursor: pointer;
+				background: #0f0;
+			}
+			#mouseable-test.over,
+			#mouseable-test.down {
+				background: #f00;
+			}
+			#mouseable-test.down {
+				top: 51px;
+			}
+			#mouseable-test.hover,
+			#mouseable-test.active {
+				background: #3399ff;
+			}
+			#mouseable-test.active {
+				top: 49px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mouseable-test"></div>
+		<script type="text/javascript">
+			
+			//$("#mouseable-test").mouseable();
+			
+			$("#mouseable-test").mouseable({
+				hoverClass: "hover",
+				activeClass: "active"
+			});
+			
+		</script>
+	</body>
+</html>
