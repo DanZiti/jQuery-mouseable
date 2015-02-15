@@ -7,7 +7,7 @@
  * 
  * Copyright (c) 2015 Dan Zervoudakes
  * Released under the MIT license
- * https://github.com/DanZiti/jQuery-doubleTap/blob/master/LICENSE
+ * https://github.com/DanZiti/jQuery-mouseable/blob/master/LICENSE
  */
 
 	(function($){
