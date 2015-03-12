@@ -35,18 +35,19 @@
 		evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
 		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
 		
-		$(this).on(evt_hover, function() {
-			$(this).addClass(hoverClass);
-		})
-		.on(evt_remove, function() {
-			$(this).removeClass(hoverClass);
-		})
-		.on(evt_down, function() {
-			$(this).addClass(activeClass);
-		})
-		.on(evt_up, function() {
-			$(this).removeClass(activeClass);
-		});
+		$(this)
+			.on(evt_hover, function() {
+				$(this).addClass(hoverClass);
+			})
+			.on(evt_remove, function() {
+				$(this).removeClass(hoverClass);
+			})
+			.on(evt_down, function() {
+				$(this).addClass(activeClass);
+			})
+			.on(evt_up, function() {
+				$(this).removeClass(activeClass);
+			});
 		
 		return this;
 	};
