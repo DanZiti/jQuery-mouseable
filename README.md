@@ -1,5 +1,7 @@
 # jQuery-mouseable
 
+_A !DOCTYPE-agnostic reprieve from unreliable pseudo classes._
+
 Dynamically adds hover and active classes to DOM elements for styling, removing the need for CSS :hover and :active pseudo classes.  Unlike pseudo classes, this method is !DOCTYPE-agnostic.
 
 ##### Example:
