@@ -1,26 +1,28 @@
 /**
  * jQuery mouseable() plugin
- * https://github.com/DanZiti/jQuery-mouseable
+ * https://github.com/dzervoudakes/jQuery-mouseable
  * 
  * Custom jQuery method that adds hover and active classes to DOM elements...
  * A !DOCTYPE-agnostic replacement for CSS :hover and :active pseudo classes
  * 
- * Copyright (c) 2015 Dan Zervoudakes
+ * Copyright (c) 2015, 2016 Dan Zervoudakes
  * Released under the MIT license
- * https://github.com/DanZiti/jQuery-mouseable/blob/master/LICENSE
+ * https://github.com/dzervoudakes/jQuery-mouseable/blob/master/LICENSE
  */
 
 (function($) {
 	
-	$.fn.mouseable = function(_classes) {
+	$.fn.mouseable = function(classes) {
 		
-		var hoverClass, activeClass, evt_hover, evt_remove, evt_down, evt_up;
+		var hoverClass, activeClass;
 		
-		if (_classes) {
+		// Determine default vs. custom classNames
+		//
+		if (classes) {
 			
-			if (typeof _classes === "object") {
-				hoverClass  = (_classes.hasOwnProperty("hoverClass"))  ? _classes["hoverClass"]  : "over";
-				activeClass = (_classes.hasOwnProperty("activeClass")) ? _classes["activeClass"] : "down";
+			if (typeof classes === "object") {
+				hoverClass  = (classes.hasOwnProperty("hoverClass"))  ? classes["hoverClass"]  : "over";
+				activeClass = (classes.hasOwnProperty("activeClass")) ? classes["activeClass"] : "down";
 			}
 			
 			else {
@@ -30,26 +32,34 @@
 		}
 		
 		else {
-			hoverClass = "over";
+			hoverClass  = "over";
 			activeClass = "down";
 		}
 		
-		evt_hover  = ("createTouch" in document) ? "touchstart" : "mouseenter";
-		evt_remove = ("createTouch" in document) ? "touchend"   : "mouseleave";
-		evt_down   = ("createTouch" in document) ? "touchstart" : "mousedown";
-		evt_up     = ("createTouch" in document) ? "touchend"   : "mouseup mouseleave";
+		// Create interactions (touch vs. mouse events)
+		//
+		function createInteraction(touchEvt, mouseEvt) {
+			return ("ontouchend" in document) ? touchEvt : mouseEvt;
+		};
+		
+		var events = {
+			hover:  createInteraction("touchstart", "mouseenter"),
+			remove: createInteraction("touchend", "mouseleave"),
+			down:   createInteraction("touchstart", "mousedown"),
+			up: 	createInteraction("touchend", "mouseup mouseleave")
+		};
 		
 		$(this)
-			.on(evt_hover, function() {
-				$(this).addClass(hoverClass);
+			.on(events.hover, function() {
+				$(this).addClass(hoverClass); // .on([evtHover, evtDown], function() {});
 			})
-			.on(evt_remove, function() {
+			.on(events.remove, function() {
 				$(this).removeClass(hoverClass);
 			})
-			.on(evt_down, function() {
+			.on(events.down, function() {
 				$(this).addClass(activeClass);
 			})
-			.on(evt_up, function() {
+			.on(events.up, function() {
 				$(this).removeClass(activeClass);
 			});
 		
