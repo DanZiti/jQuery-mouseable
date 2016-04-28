@@ -16,8 +16,7 @@
 		
 		var hoverClass, activeClass;
 		
-		// Determine default vs. custom classNames
-		//
+		// Determine default or custom classNames
 		if (classes) {
 			
 			if (typeof classes === "object") {
@@ -33,7 +32,6 @@
 		}
 		
 		// Create interactions (touch vs. mouse events)
-		//
 		function createInteraction(touchEvt, mouseEvt) {
 			return ("ontouchend" in document) ? touchEvt : mouseEvt;
 		};
@@ -47,7 +45,7 @@
 		
 		$(this)
 			.on(events.hover, function() {
-				$(this).addClass(hoverClass); // .on([evtHover, evtDown], function() {});
+				$(this).addClass(hoverClass);
 			})
 			.on(events.remove, function() {
 				$(this).removeClass(hoverClass);
