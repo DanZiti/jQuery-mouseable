@@ -31,7 +31,7 @@
 			activeClass = "down";
 		}
 		
-		// Create interactions (touch vs. mouse events)
+		// Create interactions (touch or mouse events)
 		function createInteraction(touchEvt, mouseEvt) {
 			return ("ontouchend" in document) ? touchEvt : mouseEvt;
 		};
