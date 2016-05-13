@@ -10,14 +10,14 @@ Dynamically adds hover and active classes to DOM elements for styling, removing 
 $(selector).mouseable();
 ```
 
-In the example above, the default hover class = "over" and the default active class = "down".
+In the example above, the default hover class is "over" and the default active class is "down".
 
 ##### Example with custom hover/active classes:
 
 ```
 $(selector).mouseable({
-	hoverClass: "foo",
-	activeClass: "bar"
+	hoverClass: 'foo',
+	activeClass: 'bar'
 });
 ```
 
