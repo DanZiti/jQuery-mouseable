@@ -20,8 +20,8 @@
 		if (classes) {
 			
 			if (typeof classes === 'object') {
-				hoverClass  = (classes.hasOwnProperty('hoverClass'))  ? classes['hoverClass']  : 'over';
-				activeClass = (classes.hasOwnProperty('activeClass')) ? classes['activeClass'] : 'down';
+				hoverClass  = classes.hasOwnProperty('hoverClass')  ? classes['hoverClass']  : 'over';
+				activeClass = classes.hasOwnProperty('activeClass') ? classes['activeClass'] : 'down';
 			} else {
 				throw new Error('Classes parameter for mouseable() must be an object with properties "hoverClass" and/or "activeClass".');
 			}
@@ -33,7 +33,7 @@
 		
 		// Create interactions (touch or mouse events)
 		function createInteraction(touchEvt, mouseEvt) {
-			return ('ontouchend' in document) ? touchEvt : mouseEvt;
+			return 'ontouchend' in document ? touchEvt : mouseEvt;
 		};
 		
 		var events = {
